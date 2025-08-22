@@ -2,6 +2,17 @@
 
 A modern, feature-rich music streaming application that aggregates music from multiple free API sources, providing users with a comprehensive music discovery and playback experience.
 
+## 🌐 **Live Website**
+**[🎵 Try R-Music Player Now](https://ramesh-kumawat.github.io/r-music-player/)**
+
+*Experience the full music streaming app with all features!*
+
+[![Website](https://img.shields.io/badge/Website-Live%20Demo-brightgreen)](https://ramesh-kumawat.github.io/r-music-player/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Ramesh-kumawat/r-music-player)
+[![Status](https://img.shields.io/badge/Status-Live%20%26%20Working-success)](https://ramesh-kumawat.github.io/r-music-player/)
+
+---
+
 ## ✨ Features
 
 ### 🎼 Multi-Source Music Integration
