@@ -1,0 +1,38 @@
+a{
+    text-decoration: none !important;
+}
+
+.btn-body{
+    height: 80px;
+    width: 80px;
+    border-radius: 20px;
+    color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.btn-body.active{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; 
+    transform: scale(1.05);
+    border: 1px solid #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+   }
+
+   .btn-body:hover{
+    color: white;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+   }
+
+.btn-title{
+    margin: 4px auto;
+    font-weight: 600;
+    font-size: 14px;
+}

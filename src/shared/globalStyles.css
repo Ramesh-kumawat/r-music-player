@@ -1,0 +1,14 @@
+.screen-container{
+    width: calc(100% - 100px);
+    height: 100%;
+    background-color: #121212;
+    border-radius: 0;
+    opacity: 1;
+    overflow-y: auto; /* ensure inner screens scroll, not the document */
+    -webkit-overflow-scrolling: touch;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}

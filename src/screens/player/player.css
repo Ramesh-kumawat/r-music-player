@@ -1,0 +1,321 @@
+/* Clean Minimal Player UI */
+.screen-container {
+  flex: 1;
+  background: #121212;
+  color: white;
+  padding: 40px;
+  padding-top: 40px; /* standard padding; sticky headers now handled at app-level */
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.player-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Track Display Section */
+.track-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.track-artwork {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artwork-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 4rem;
+}
+
+.track-info {
+  max-width: 600px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .track-info {
+    padding: 0 15px;
+  }
+  
+  .track-name {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+  
+  .track-artist {
+    font-size: clamp(0.9rem, 4vw, 1.3rem);
+  }
+  
+  .track-album {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+  }
+}
+
+.track-name {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: white;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+  cursor: help;
+}
+
+.track-artist {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #b3b3b3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+  cursor: help;
+}
+
+.track-album {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #888;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+  cursor: help;
+}
+
+.track-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.action-btn {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #b3b3b3;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.action-btn:hover {
+  background: #333;
+  color: white;
+  border-color: #667eea;
+  transform: scale(1.05);
+}
+
+.action-btn.liked {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+/* Audio Controls */
+.audio-controls {
+  background: #1e1e1e;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid #333;
+}
+
+/* Queue Section */
+.queue-section {
+  background: #1e1e1e;
+  border-radius: 20px;
+  border: 1px solid #333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #333;
+  background: #252525;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.queue-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.toggle-queue-btn {
+  background: none;
+  border: 1px solid #444;
+  color: #b3b3b3;
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.toggle-queue-btn:hover {
+  background: #333;
+  color: white;
+  border-color: #667eea;
+}
+
+.queue-container {
+  height: 280px; /* Fixed height to show ~4 songs initially */
+  min-height: 280px; /* Ensure minimum height */
+  max-height: 280px; /* Ensure maximum height */
+  overflow: hidden; /* Hide overflow from queue component */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the queue component inside can scroll */
+.queue-container .queue-container {
+  height: 100%;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.queue-container .queue-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* Add padding for scrollbar */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .screen-container {
+    padding: 20px;
+  }
+  
+  .player-container {
+    gap: 30px;
+  }
+  
+  .track-artwork {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .track-name {
+    font-size: 2rem;
+  }
+  
+  .track-artist {
+    font-size: 1.3rem;
+  }
+  
+  .track-actions {
+    gap: 12px;
+  }
+  
+  .action-btn {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+  
+  .audio-controls {
+    padding: 25px;
+  }
+  
+  .queue-header {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen-container {
+    padding: 15px;
+  }
+  
+  .player-container {
+    gap: 25px;
+  }
+  
+  .track-artwork {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .track-name {
+    font-size: 1.8rem;
+  }
+  
+  .track-artist {
+    font-size: 1.1rem;
+  }
+  
+  .track-actions {
+    gap: 10px;
+  }
+  
+  .action-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  
+  .audio-controls {
+    padding: 20px;
+  }
+  
+  .queue-header {
+    padding: 12px 15px;
+  }
+  
+  .queue-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .toggle-queue-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
