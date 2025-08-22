@@ -60,7 +60,7 @@ export default function Home() {
   return !user ? (
     <Login onLogin={handleLogin} />
   ) : (
-    <Router>
+    <Router basename="/r-music-player">
       <ScrollToTop />
       <div className="main-body">
         <Sidebar user={user} onLogout={handleLogout} />
