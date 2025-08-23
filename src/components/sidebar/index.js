@@ -5,10 +5,11 @@ import { AiOutlineSearch, AiOutlineDownload, AiOutlineUser, AiOutlineLogout } fr
 import { MdSpaceDashboard, MdFavorite } from "react-icons/md";
 import { FaGripfire, FaPlay } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
+import { RiRobot2Line } from "react-icons/ri";
 import SidebarButton from './sidebarButton';
 import './sidebar.css';
 
-export default function Sidebar({ user, onLogout }) {
+export default function Sidebar({ user, onLogout, onToggleAIChat }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -41,6 +42,17 @@ export default function Sidebar({ user, onLogout }) {
       </div>
 
       <div className="sidebar-footer">
+        {/* AI Chat Button */}
+        <button 
+          className="sidebar-ai-button"
+          onClick={onToggleAIChat}
+          title="AI Music Assistant"
+          style={{ border: '2px solid #ff0000' }} // Temporary debug border
+        >
+          <RiRobot2Line size="20px" />
+          <span>AI Assistant</span>
+        </button>
+        
         <button className="logout-button" onClick={handleLogout}>
           <IconContext.Provider value={{ size: "20px" }}>
             <AiOutlineLogout />

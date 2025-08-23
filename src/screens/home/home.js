@@ -10,6 +10,7 @@ import Search from '../search/search';
 import Downloads from '../downloads/downloads';
 import Sidebar from '../../components/sidebar';
 import Login from '../auth/login';
+import AIChat from '../../components/aiChat/aiChat';
 import ScrollToTop from '../../components/ScrollToTop';
 import authService from '../../services/authService';
 import './home.css';
@@ -17,6 +18,7 @@ import './home.css';
 export default function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showAIChat, setShowAIChat] = useState(false);
 
   useEffect(() => {
     // Check if user is already logged in
@@ -46,6 +48,11 @@ export default function Home() {
   const handleLogout = () => {
     authService.logout();
     setUser(null);
+    setShowAIChat(false); // Close AI chat on logout
+  };
+
+  const toggleAIChat = () => {
+    setShowAIChat(!showAIChat);
   };
 
   if (loading) {
@@ -63,7 +70,11 @@ export default function Home() {
     <Router basename="/r-music-player">
       <ScrollToTop />
       <div className="main-body">
-        <Sidebar user={user} onLogout={handleLogout} />
+        <Sidebar 
+          user={user} 
+          onLogout={handleLogout} 
+          onToggleAIChat={toggleAIChat}
+        />
         <Routes>
           <Route path="/library" element={<Library user={user} />} />
           <Route path="/feed" element={<Feed user={user} />} />
@@ -74,6 +85,20 @@ export default function Home() {
           <Route path="/downloads" element={<Downloads user={user} />} />
           <Route path="/" element={<Search user={user} />} />
         </Routes>
+        
+        {/* AI Chat Assistant */}
+        {showAIChat && (
+          <AIChat 
+            user={user} 
+            onClose={() => setShowAIChat(false)}
+            onSearchRequest={(query) => {
+              // Handle AI search requests
+              console.log('AI Search Request:', query);
+              setShowAIChat(false);
+              // You can navigate to search page with the query here
+            }}
+          />
+        )}
       </div>
     </Router>
   );

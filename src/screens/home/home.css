@@ -4,6 +4,11 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+.main-body > *:not(.sidebar-container) {
+  margin-left: 280px; /* Account for fixed sidebar width */
+  flex: 1;
+}
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -32,4 +37,11 @@
 .loading-container p {
   font-size: 1.1rem;
   opacity: 0.9;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .main-body > *:not(.sidebar-container) {
+    margin-left: 0;
+  }
 }
